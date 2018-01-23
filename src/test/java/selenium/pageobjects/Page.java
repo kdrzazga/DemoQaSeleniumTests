@@ -1,0 +1,32 @@
+package selenium.pageobjects;
+
+import org.openqa.selenium.WebDriver;
+
+public abstract class Page implements WebDriveable {
+
+    protected WebDriver driver;
+    protected final String url;
+
+    public Page(WebDriver driver, String url) {
+        this.driver = driver;
+        this.url = url;
+    }
+
+    public void navigateTo() {
+        this.driver.get(this.url);
+    }
+
+    @Override
+    public WebDriver getDriver() {
+        return this.driver;
+    }
+
+    @Override
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public String getTitle() {
+        return this.driver.getTitle();
+    }
+}
